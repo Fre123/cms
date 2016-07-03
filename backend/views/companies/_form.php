@@ -6,13 +6,11 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Companies */
 /* @var $form yii\widgets\ActiveForm */
-/*
-    <?= $form->field($model, 'compnay_create_date')->textInput() ?>*/
 ?>
 
 <div class="companies-form">
 
-    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data' ]]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'company_id')->textInput() ?>
 
@@ -22,7 +20,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company_addres')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model,'file')->fileInput(); ?>
+    <?= $form->field($model, 'logo')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'compnay_create_date')->textInput() ?>
 
     <?= $form->field($model, 'company_status')->dropDownList([ 'active' => 'Active', 'inactive' => 'Inactive', ], ['prompt' => '']) ?>
 

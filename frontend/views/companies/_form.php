@@ -20,6 +20,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company_addres')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'logo')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'compnay_create_date')->textInput() ?>
 
     <?= $form->field($model, 'company_status')->dropDownList([ 'active' => 'Active', 'inactive' => 'Inactive', ], ['prompt' => '']) ?>

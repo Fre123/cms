@@ -125,9 +125,16 @@ class CompaniesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Yii::$app->user->can('delete-companie')){
 
+        $this->findModel($id)->delete();
         return $this->redirect(['index']);
+        
+        }else{
+            throw new ForbiddenHttpException;
+        }
+
+        
     }
 
     /**

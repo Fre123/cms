@@ -23,7 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company_addres') ?>
 
-    <?= $form->field($model, 'compnay_create_date') ?>
+    <?= $form->field($model, 'logo') ?>
+
+    <?php // echo $form->field($model, 'compnay_create_date') ?>
 
     <?php // echo $form->field($model, 'company_status') ?>
 

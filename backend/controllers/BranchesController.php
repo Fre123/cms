@@ -75,7 +75,7 @@ class BranchesController extends Controller
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->branch_id]);
             } else {
-                return $this->render('create', [
+                return $this->renderAjax('create', [
                     'model' => $model,
                 ]);
             }
@@ -95,6 +95,7 @@ class BranchesController extends Controller
      */
     public function actionUpdate($id)
     {
+         if(Yii::$app->user->can('update-branch')){
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -103,6 +104,10 @@ class BranchesController extends Controller
             return $this->render('update', [
                 'model' => $model,
             ]);
+        }
+                }else{
+
+            throw new ForbiddenHttpException;
         }
     }
 
@@ -114,9 +119,14 @@ class BranchesController extends Controller
      */
     public function actionDelete($id)
     {
+          if(Yii::$app->user->can('delete-branch')){
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+                        }else{
+
+            throw new ForbiddenHttpException;
+        }
     }
 
     /**
